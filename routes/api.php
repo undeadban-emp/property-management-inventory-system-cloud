@@ -22,6 +22,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/api-data/item', [ApiController::class, 'getDataItem']);
 
+
+
 Route::post('/api-data/inventory-custodian', [ApiController::class, 'getDataInventoryCustodian']);
 
+
+
 Route::post('/api-data/property-acknowledgement', [ApiController::class, 'getDataPropertyAcknowledgement']);
+
+
+
+Route::post('/api-data/office', [ApiController::class, 'getDataOffice']);

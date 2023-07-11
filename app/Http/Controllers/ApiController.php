@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Office;
 use App\Models\sample;
 use Illuminate\Http\Request;
 use App\Models\InventoryCustodian;
@@ -13,6 +14,7 @@ use App\Models\PropertyAcknowledgment;
 use App\Models\PropertyAcknowledgmentItem;
 use App\Models\InventoryCustodianItemEndUser;
 use App\Models\PropertyAcknowledgementItemEndUser;
+use Carbon\Carbon;
 
 class ApiController extends Controller
 {
@@ -237,8 +239,33 @@ class ApiController extends Controller
 
 
 
+    public function getDataOffice(Request $request)
+    {
+        try{
+            $dataOffice = $request->all();
+            // Log::info($dataOffice['data']);  
+            foreach($dataOffice['data'] as $office)
+            {
+                Office::updateOrCreate(
+                    [
+                        'OfficeCode' => $office['OfficeCode']
+                    ],
+                    [
+                    'Description' => $office['Description'],
+                    'OfficeShort' => $office['OfficeShort'],
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                    ]
+                );
+            }
+            return response()->json([
+                'message' => 'Success',
+            ]);
 
-
-
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
 
 }
