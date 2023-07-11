@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('received_by_pos');
             $table->date('received_from_date');
             $table->date('received_by_date');
+            $table->string('note');
+            $table->date('date_acquired')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

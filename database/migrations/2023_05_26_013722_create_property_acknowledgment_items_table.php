@@ -21,8 +21,8 @@ return new class extends Migration
             $table->integer('item_id')->nullable();
             $table->date('acquisition_date')->nullable();
             $table->decimal('acquisition_cost', 18, 2)->nullable();
+            $table->decimal('acquisition_total_cost', 18, 2)->nullable();
             $table->string('property_no')->nullable();
-            $table->string('end_user')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

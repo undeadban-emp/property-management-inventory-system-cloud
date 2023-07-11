@@ -21,6 +21,7 @@ class InventoryCustodian extends Model
         'received_by_pos',
         'received_from_date',
         'received_by_date',
+        'note'
     ];
     public function inventoryCustodianItem()
     {

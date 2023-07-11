@@ -18,13 +18,14 @@ class Item extends Model
         'serial_no',
         'brand',
         'type',
+        'isVehicle',
         'acquisition_date',
         'acquisition_cost',
         'market_appraisal',
         'appraisal_date',
         'remarks',
         'class_id',
-        'nature_occupancy',
+        'nature_occupancy'
      ];
  
      public function inventoryCustodianItem()

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
-            $table->id();
+           $table->id();
             $table->string('main_item_no', 50)->nullable();
             $table->string('item_no', 50)->nullable();
             $table->text('description');
@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('serial_no')->nullable();
             $table->string('brand')->nullable();
             $table->string('type')->nullable();
+            $table->boolean('isVehicle')->nullable();
             $table->date('acquisition_date')->nullable();
             $table->decimal('acquisition_cost')->nullable();
             $table->decimal('market_appraisal')->nullable();

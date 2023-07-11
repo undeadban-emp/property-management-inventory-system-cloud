@@ -18,12 +18,17 @@ class PropertyAcknowledgmentItem extends Model
         'item_id',
         'acquisition_date',
         'acquisition_cost',
+        'acquisition_total_cost',
         'property_no',
-        'end_user',
      ];
-     public function propertyAcknowledgement()
+    public function propertyAcknowledgement()
     {
-        return $this->belongsTo(PropertyAcknowledgement::class, 'id', 'pa_id');
+        return $this->belongsTo(PropertyAcknowledgement::class, 'pa_id', 'id');
+    }
+
+    public function propertyAcknowledgementEndUser()
+    {
+        return $this->hasMany(PropertyAcknowledgementItemEndUser::class, 'pa_item_id', 'id');
     }
 
     public function item()

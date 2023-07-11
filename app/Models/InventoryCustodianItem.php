@@ -20,6 +20,7 @@ class InventoryCustodianItem extends Model
         'unit_total_cost',
         'inventory_item_no',
         'est_useful_life',
+        'acquisition_date'
     ];
 
     public function inventoryCustodian()
@@ -27,8 +28,18 @@ class InventoryCustodianItem extends Model
         return $this->belongsTo(InventoryCustodian::class, 'id', 'ic_id');
     }
 
+    public function inventoryCustodianEndUser()
+    {
+        return $this->hasMany(InventoryCustodianItemEndUser::class, 'ic_item_id', 'id');
+    }
+
     public function item()
     {
         return $this->hasMany(Item::class, 'id', 'item_id');
+    }
+
+    public function inventoryCustodianItemEndUser()
+    {
+        return $this->hasMany(InventoryCustodianItemEndUser::class, 'ic_item_id', 'id');
     }
 }

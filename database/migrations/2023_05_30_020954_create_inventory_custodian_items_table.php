@@ -23,6 +23,7 @@ return new class extends Migration
             $table->decimal('unit_total_cost', 18, 2)->nullable();
             $table->string('inventory_item_no')->nullable();
             $table->string('est_useful_life')->nullable();
+            $table->date('acquisition_date')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
